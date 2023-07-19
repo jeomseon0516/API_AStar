@@ -156,7 +156,6 @@
     <ClCompile Include="API_AStar.cpp" />
     <ClCompile Include="Bitmap.cpp" />
     <ClCompile Include="MainUpdate.cpp" />
-    <ClCompile Include="PriorityQueue.cpp" />
     <ClCompile Include="Tile.cpp" />
   </ItemGroup>
   <ItemGroup>

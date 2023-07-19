@@ -8,7 +8,7 @@ Tile::~Tile()
 {
 }
 
-Tile* Tile::Start(Vector2Int point)
+Tile* Tile::Start(const Vector2Int& point)
 {
 	_imageFrame = Frame(0, 0, 1);
 	_image = (new Bitmap())->Loadbmp(L"../Resource/Tile.bmp");

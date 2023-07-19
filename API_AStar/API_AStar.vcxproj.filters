@@ -86,9 +86,6 @@
     <ClCompile Include="Tile.cpp">
       <Filter>소스 파일\Tile</Filter>
     </ClCompile>
-    <ClCompile Include="PriorityQueue.cpp">
-      <Filter>소스 파일\PriorityQueue</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="API_AStar.rc">

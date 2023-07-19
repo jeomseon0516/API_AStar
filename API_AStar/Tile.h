@@ -4,11 +4,12 @@
 
 enum TILE_KIND
 {
-	START = 0,
-	END   = 1,
-	OPEN  = 2,
-	CLOSE = 3,
-	FIND  = 4
+	NORMAL = 0,
+	START  = 1,
+	END    = 1,
+	OPEN   = 2,
+	CLOSE  = 3,
+	FIND   = 4
 };
 
 class Tile
@@ -25,10 +26,14 @@ private:
 	bool _isMove;
 
 public:
-	virtual Tile* Start(Vector2Int point);
+	virtual Tile* Start(const Vector2Int& point);
 	virtual void Update()
 	{
-
+		if (GetAsyncKeyState(VK_LBUTTON))
+		{
+			if (GetAsyncKeyState(VK_SPACE))
+			else if (VK_)
+		}
 	}
 
 	virtual void Render()

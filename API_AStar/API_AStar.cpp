@@ -7,6 +7,7 @@ HINSTANCE hInst;
 WCHAR szTitle[MAX_LOADSTRING];                  
 WCHAR szWindowClass[MAX_LOADSTRING];            
 HWND g_hWnd = NULL;
+HDC g_hdc = NULL;
 
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
@@ -52,7 +53,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             if (time < GetTickCount64())
             {
                 time = GetTickCount64();
+
                 main.Update();
+                main.Render();
             }
         }
     }
@@ -85,8 +88,13 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance;
 
+   RECT rt = { 0, 0, COUNT_X * TILE_SIZE + TILE_SIZE * 0.5f,
+                     COUNT_Y * TILE_SIZE + GetSystemMetrics(SM_CYCAPTION) + TILE_SIZE };
+
    HWND hWnd = g_hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+       CW_USEDEFAULT, CW_USEDEFAULT, rt.right, rt.bottom, nullptr, nullptr, hInstance, nullptr);
+
+   g_hdc = GetDC(g_hWnd);
 
    if (!hWnd)
    {
