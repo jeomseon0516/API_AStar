@@ -66,9 +66,9 @@ void AStar::findWay()
 		int diagonalCost = pivotNode->GetG() + DIAGONAL_COST;
 
 		bool left   = decideMakingNode(pivotNode, Vector2Int(-1, 0), cost); // .. Left
-		bool right  = decideMakingNode(pivotNode, Vector2Int(1, 0), cost); // .. Right
+		bool right  = decideMakingNode(pivotNode, Vector2Int(1, 0),  cost); // .. Right
 		bool top    = decideMakingNode(pivotNode, Vector2Int(0, -1), cost); // .. Top
-		bool bottom = decideMakingNode(pivotNode, Vector2Int(0, 1), cost); // .. Bottom
+		bool bottom = decideMakingNode(pivotNode, Vector2Int(0, 1),  cost); // .. Bottom
 
 		if (left && top)
 			decideMakingNode(pivotNode, Vector2Int(-1, -1), diagonalCost); // .. LeftTop
