@@ -20,6 +20,8 @@ typedef struct tagVector2Int
 	tagVector2Int operator+(const tagVector2Int& value) { return tagVector2Int(x + value.x, y + value.y); }
 	tagVector2Int operator-(const tagVector2Int& value) { return tagVector2Int(x - value.x, y - value.y); }
 	tagVector2Int operator*(int value) { return tagVector2Int(x * value, y * value); }
+	bool operator==(const tagVector2Int& value) { return x == value.x && y == value.y; }
+	bool operator!=(const tagVector2Int& value) { return x != value.x || y != value.y; }
 
 	tagVector2Int(int _x = 0, int _y = 0) : x(_x), y(_y) {}
 }Vector2Int;

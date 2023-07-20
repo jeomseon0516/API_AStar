@@ -31,8 +31,8 @@
     <Filter Include="소스 파일\Tile">
       <UniqueIdentifier>{a3e1d50a-67d6-45c5-9f60-db7983c97f80}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\PriorityQueue">
-      <UniqueIdentifier>{eb419d85-f6ac-4140-ab3c-5592274d5d30}</UniqueIdentifier>
+    <Filter Include="소스 파일\AStar">
+      <UniqueIdentifier>{a22033ba-cd34-401b-9503-4ff72c98a5a4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -69,8 +69,8 @@
     <ClInclude Include="Tile.h">
       <Filter>소스 파일\Tile</Filter>
     </ClInclude>
-    <ClInclude Include="PriorityQueue.h">
-      <Filter>소스 파일\PriorityQueue</Filter>
+    <ClInclude Include="AStar.h">
+      <Filter>소스 파일\AStar</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +85,9 @@
     </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>소스 파일\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="AStar.cpp">
+      <Filter>소스 파일\AStar</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
