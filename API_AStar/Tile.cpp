@@ -16,10 +16,11 @@ void Tile::Init()
 	_g = _h = 0;
 }
 
-Tile* Tile::Start(AStar* aStar, const Vector2Int& point)
+Tile* Tile::Start(Tile* parentNode, AStar* aStar, const Vector2Int& point)
 {
 	_aStar = aStar;
 	_tilePoint = point;
+	_parentNode = parentNode;
 
 	Init();
 
@@ -41,20 +42,22 @@ void Tile::Update()
 	if (GetAsyncKeyState(VK_LBUTTON) && CheckCursorCollision(cursorPoint))
 	{
 		if (GetAsyncKeyState(VK_SPACE)) // .. 벽 생성
-			_imageFrame.frameX = WALL;
+			_tileKind = WALL;
 		else if (GetAsyncKeyState(VK_LCONTROL)) // .. 일반 타일로 변경
-			_imageFrame.frameX = NORMAL;
+			_tileKind = NORMAL;
 		else if (GetAsyncKeyState('S')) // .. startNode 생성
 		{
-			_imageFrame.frameX = START;
+			_tileKind = START;
 			_aStar->SetStartNode(this);
 		}
 		else if (GetAsyncKeyState('E')) // .. endNode 생성
 		{
-			_imageFrame.frameX = END;
+			_tileKind = END;
 			_aStar->SetEndNode(this);
 		}
 	}
+
+	_imageFrame.frameX = _tileKind;
 }
 
 bool Tile::CheckCursorCollision(POINT cursorPoint)

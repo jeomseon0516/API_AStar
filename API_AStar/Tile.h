@@ -20,6 +20,7 @@ class Tile
 private:
 	TILE_KIND _tileKind;
 	AStar* _aStar;
+	Tile* _parentNode;
 
 	Transform transform;
 	Bitmap* _image;
@@ -32,7 +33,7 @@ private:
 
 public:
 	void Init();
-	Tile* Start(AStar* aStar, const Vector2Int& point);
+	Tile* Start(Tile* parentNode, AStar* aStar, const Vector2Int& point);
 	void Update();
 
 	void Render()
@@ -59,10 +60,17 @@ public:
 	void SetH(int h) { _h = h; }
 
 	// start노드와 end 노드는 하나 씩만 존재 할 수 있기 때문에
-	void SetNormalNode() { _imageFrame.frameX = NORMAL; }
+	void SetTileKind(const TILE_KIND& tileKind) 
+	{ 
+		_tileKind = tileKind;
+		_imageFrame.frameX = _tileKind;
+	}
+
+	Tile* GetParentNode()const { return _parentNode; }
+	void SetParentNode(Tile* parentNode) { _parentNode = parentNode; }
 
 	Vector2Int GetTilePoint()const { return _tilePoint; }
-	TILE_KIND GetTileKine()const   { return _tileKind; }
+	TILE_KIND GetTileKind()const   { return _tileKind; }
 
 	int GetF() { return _g + _h; }
 public:
